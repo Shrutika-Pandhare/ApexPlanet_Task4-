@@ -1,7 +1,7 @@
 # ApexPlanet_Task4-
 
 
-# Dev Desk – Shrutika's Interactive Portfolio
+#Interactive Portfolio
 
 A creative and interactive developer portfolio designed to showcase personal projects, technical skills, and developer tools in a visually engaging format. This project offers a retro, desktop-style interface with functional elements that simulate a real developer’s workspace.
 
