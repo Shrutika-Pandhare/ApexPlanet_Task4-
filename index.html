@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+  <title>Dev Desk</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="desk">
+    <p class="title">SHRUTIKA'S DESK</p>
+
+    <a href="#" class="click tablet" onclick="openBox('projects')" title="View Projects"></a>
+
+    <a href="#" class="click notebook" onclick="openBox('skills')" title="View Skills"></a>
+
+    <a href="#" class="click photo" onclick="openBox('about')" title="About Me"></a>
+
+    <a href="#" class="click sticky s1" onclick="openBox('note1')" title="Sticky Note 1"></a>
+    <a href="#" class="click sticky s2" onclick="openBox('note2')" title="Sticky Note 2"></a>
+    <a href="#" class="click sticky s3" onclick="openBox('note3')" title="Sticky Note 3"></a>
+
+    <a href="#" class="click phone-click" onclick="openInbox()" title="Contact Inbox"></a>
+    <img src="./items/phone2.png" alt="Phone" class="phone-img" />
+
+  </div>
+
+
+  <!------------------------PROJECTS---------------------------------------->
+  <div id="projects" class="popup">
+    <div class="head">
+      <span>🗂️ MY PROJECTS</span>
+      <button onclick="closeBox('projects')">✖</button>
+    </div>
+    <div class="content">
+      <div class="card">
+        <h3>📜 CookBook Recipe Website</h3>
+        <p>Recipe site made with HTML, CSS and JS.</p>
+        <a href="https://github.com/Shrutika-Pandhare/ApexPlanet_Task2">[ GitHub ]</a>
+      </div>
+      <div class="card">
+        <h3>🎞️ Image Gallery</h3>
+        <p>Gallery of academic arts.</p>
+        <a href="https://github.com/Shrutika-Pandhare/ApexPlanet_Task1">[ GitHub ]</a>
+      </div>
+      <div class="card">
+        <h3>🗺️⁀✈︎ Travel Companion</h3>
+        <p>Take a quiz and discover your next travel destination.</p>
+        <a href="https://github.com/Shrutika-Pandhare/ApexPlanet_Task3">[ GitHub ]</a>
+      </div>
+    </div>
+  </div>
+
+
+<!------------------ About -------------------------->
+  <div id="about" class="popup about">
+    <button onclick="closeBox('about')" class="close">✖</button>
+    <img src="./items/me4.jpg" class="img" alt="About Me" />
+  </div>
+
+
+
+  <!--------------------Sticky Notes-------------------------->
+  <div id="note1" class="stickynote">
+    <button class="close" onclick="closeBox('note1')">✖</button>
+    <div class="body">
+      <img src="./items/sticky1.jpg" class="bg" alt="Note 1" />
+      <ul id="tasks1" class="tasklist"></ul>
+      <input type="text" id="input1" class="taskinput" placeholder="Add task..." />
+      <button id="clear1" class="clearbtn">Clear All</button>
+    </div>
+  </div>
+
+  <div id="note2" class="stickynote">
+    <button class="close" onclick="closeBox('note2')">✖</button>
+    <div class="body">
+      <img src="./items/sticky2.jpg" class="bg" alt="Note 2" />
+      <ul id="tasks2" class="tasklist"></ul>
+      <input type="text" id="input2" class="taskinput" placeholder="Add task..." />
+      <button id="clear2" class="clearbtn">Clear All</button>
+    </div>
+  </div>
+
+  <div id="note3" class="stickynote">
+    <button class="close" onclick="closeBox('note3')">✖</button>
+    <div class="body">
+      <img src="./items/sticky3.jpg" class="bg" alt="Note 3" />
+      <ul id="tasks3" class="tasklist"></ul>
+      <input type="text" id="input3" class="taskinput" placeholder="Add task..." />
+      <button id="clear3" class="clearbtn">Clear All</button>
+    </div>
+  </div>
+
+ 
+
+<!---------------------contact----------------------->
+<div id="inbox" class="inbox-popup">
+  <div class="inbox-header">
+    <button onclick="closeInbox()" class="close-btn">✖</button>
+
+    <span class="inbox-icon">👤</span>
+    <span class="inbox-title">Inbox</span>
+    <input type="text" value="Shrutika" readonly class="inbox-name" />
+  </div>
+
+  <div class="inbox-message-area">
+    <textarea id="messageBox" maxlength="400" placeholder="Write your message here..."></textarea>
+    <div class="inbox-footer">
+      <span class="timestamp">🕒 01.03.2024 / 16:33</span>
+      <span class="char-count" id="charCount">(0 / 400)</span>
+    </div>
+  </div>
+
+  <div class="inbox-buttons">
+    <button onclick="sendMessage()" class="btn-next">📨 Send</button>
+    <button onclick="clearMessage()" class="btn-prev">❌ Clear</button>
+  </div>
+</div>
+
+
+<!-- ---------------------------------------------------------------------->
+<div id="skills" class="popup">
+  <div class="head">
+    <span>🔧Toolbox</span>
+    <button onclick="closeBox('skills')">✖</button>
+  </div>
+
+  <div class="content">
+    <div class="controls">
+      <div class="filters">
+        <button onclick="filterProducts('All')">All</button>
+        <button onclick="filterProducts('Book')">Books</button>
+        <button onclick="filterProducts('Learning')">Learning</button>
+        <button onclick="filterProducts('Design Kit')">Design Kits</button>
+      </div>
+
+      <div class="sort">
+        <label for="sortSelect">Sort by:</label>
+        <select id="sortSelect" onchange="sortProducts()">
+          <option value="default">Default</option>
+          <option value="priceLow">Price: Low to High</option>
+          <option value="priceHigh">Price: High to Low</option>
+          <option value="ratingHigh">Rating: High to Low</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+  
+    </div>
+  </div>
+</div>
+
+
+<script src="./script.js"></script>
+</body>
+</html>
